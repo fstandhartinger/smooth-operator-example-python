@@ -34,10 +34,7 @@ This example demonstrates:
 2.  **Create a virtual environment (recommended):**
     ```bash
     python -m venv .venv
-    # On Windows
     .venv\Scripts\activate
-    # On macOS/Linux
-    source .venv/bin/activate
     ```
 
 3.  **Install dependencies:**

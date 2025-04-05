@@ -31,7 +31,10 @@ async def main():
         client.keyboard.type("3+4") # assumes the calc app is focused
         
         print("Clicking equals sign...")        
-        client.mouse.click_by_description("the equals sign") # You could also use client.keyboard.type("=") or use Windows automation
+        # Using AI vision to find and click th equals button - alternatives:
+        # - client.keyboard.type("=") - simpler and faster
+        # - client.automation.invoke - using Windows UI Automation, a bit more complex to implement but very robust (not affected by focus changes)                        
+        client.mouse.click_by_description("the equals sign")
 
         if openai_api_key:
             print("Getting window overview...")
@@ -41,13 +44,13 @@ async def main():
             if overview.focus_info and overview.focus_info.focused_element_parent_window:
                 focused_window_json = overview.focus_info.focused_element_parent_window.to_json_string()
                 
-                # You can use GPT-4o or other ai models for all sorts of tasks together with the 
-                # smooth operator agent tools. In this case we use it to read the result of the calculator from its automation tree.
+                # You can use GPT-4o or other ai models for all sorts of tasks together with the Smooth Operator Agent Tools. 
+                # In this case we use it to read the result of the calculator from its automation tree.
                 # But it can also for example be used to decide which button to click next, what text to type, etc.
                 print("Asking OpenAI about the result...")
                 openai_client = OpenAI(api_key=openai_api_key)
                 chat_completion = openai_client.chat.completions.create(
-                    model="chatgpt-4o-latest", 
+                    model="gpt-4o", 
                     messages=[
                         {
                             "role": "user",
@@ -74,7 +77,7 @@ async def main():
         #     print("Asking OpenAI about the screenshot...")
         #     openai_client = OpenAI(api_key=openai_api_key)
         #     chat_completion = openai_client.chat.completions.create(
-        #         model="gpt-4o-latest",
+        #         model="gpt-4o",
         #         messages=[
         #             {
         #                 "role": "user",
