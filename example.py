@@ -4,7 +4,13 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from smooth_operator_agent_tools import SmoothOperatorClient
 
-async def main():
+# Import the new twitter checker function
+from twitter_ai_news_checker import run_twitter_checker
+
+# Correct the import name
+from twitter_ai_news_checker_minimal import run_minimal_twitter_checker
+
+async def main_calculator():
     # Load environment variables from .env file
     load_dotenv()
 
@@ -109,6 +115,14 @@ async def main():
 
     print("\nExample finished. Press Enter to exit.")
     input() # Keep console open
+
+async def main():
+    # If you want to run the Twitter example, comment out the next line
+    # and uncomment the line after that.
+    # await main_calculator()
+    # await run_twitter_checker() # Uncomment this to run the Twitter example
+    # await run_minimal_twitter_checker() # Uncomment this to run the Twitter example that has reduced code lines 
+    return
 
 if __name__ == "__main__":
     asyncio.run(main()) 
