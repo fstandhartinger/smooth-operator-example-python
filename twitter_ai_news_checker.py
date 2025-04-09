@@ -38,8 +38,10 @@ async def run_twitter_checker():
             url = f"https://x.com/{account}"
 
             if not is_browser_open:
-                # Open Chrome, closing any existing instance
-                client.chrome.open_chrome(urlFORCE_CLOSE)
+                open_result = client.chrome.open_chrome(url)
+                print(open_result.message)
+                if open_result.message.startswith('Error'):                    
+                    return
                 is_browser_open = True
                 print("Waiting for browser to load...")
                 await asyncio.sleep(7) # give the newly opened browser some time to load that page

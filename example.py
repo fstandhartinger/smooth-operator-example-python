@@ -119,7 +119,7 @@ async def main_calculator():
 async def main():
     # If you want to run the Twitter example, comment out the next line
     # and uncomment the line after that.
-    # await main_calculator()
+    await main_calculator()
     # await run_twitter_checker() # Uncomment this to run the Twitter example
     # await run_minimal_twitter_checker() # Uncomment this to run the Twitter example that has reduced code lines 
     return
