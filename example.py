@@ -4,11 +4,10 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from smooth_operator_agent_tools import SmoothOperatorClient
 
-# Import the new twitter checker function
+# Import the examples
 from twitter_ai_news_checker import run_twitter_checker
-
-# Correct the import name
 from twitter_ai_news_checker_minimal import run_minimal_twitter_checker
+from collect_orders_erp import run_collect_orders_erp
 
 async def main_calculator():
     # Load environment variables from .env file
@@ -117,11 +116,11 @@ async def main_calculator():
     input() # Keep console open
 
 async def main():
-    # If you want to run the Twitter example, comment out the next line
-    # and uncomment the line after that.
-    await main_calculator()
-    # await run_twitter_checker() # Uncomment this to run the Twitter example
-    # await run_minimal_twitter_checker() # Uncomment this to run the Twitter example that has reduced code lines 
+    # Choose which example to run by uncommenting one line and commenting out the others
+    await main_calculator()  # Default example: calculator
+    # await run_twitter_checker()  # Twitter example
+    # await run_minimal_twitter_checker()  # Minimal Twitter example 
+    # await run_collect_orders_erp()  # Email to ERP example
     return
 
 if __name__ == "__main__":
