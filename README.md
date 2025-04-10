@@ -1,3 +1,9 @@
+# If you are looking for the MCP server: [You find it here!](https://smooth-operator.online/agent-tools)
+
+
+
+If you are looking for the Python Client Example, go on.. ;)
+
 # Smooth Operator Python Client Example
 
 This project provides a simple example of how to use the [`smooth_operator_agent_tools`](https://pypi.org/project/smooth-operator-agent-tools/#description) client library to interact with the Smooth Operator agent.
@@ -17,8 +23,6 @@ This example demonstrates:
 
 ## Prerequisites
 
-*   Python 3.8+
-*   The Smooth Operator Agent installed and running. Download it from [https://smoothoperator.ai/](https://smoothoperator.ai/).
 *   A ScreenGrasp API key. Get a free key from [https://screengrasp.com/api.html](https://screengrasp.com/api.html).
 *   (Optional) An OpenAI API key if you want to use GPT-4o integration for result verification. Get a key from [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys).
 
